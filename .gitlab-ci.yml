@@ -1,0 +1,30 @@
+stages:
+  - check
+  - deploy
+
+build:
+  stage: check
+  image: node:12.18.3
+  script:
+    - npm install --silent
+    - npm run build
+    - echo "Build successful"
+  artifacts:
+    paths:
+      - build/
+  only:
+    - master
+    - dev
+lint:
+  stage: check
+  image: node:12.18.3
+  script:
+    # Install ESLint in this docker container
+    - npm install -g eslint --silent
+    - npm install -g eslint-config-react-app --silent
+    - npm install --silent 
+    # Run ESLint
+    - npm run lint
+  only:
+    - master
+    - dev

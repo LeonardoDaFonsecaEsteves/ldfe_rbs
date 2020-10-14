@@ -1,0 +1,32 @@
+{
+    "root": true,
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "parser": "babel-eslint"
+    },
+    "env": {
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": ["react-app", "plugin:prettier/recommended"],
+  
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    },
+  
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine": "auto"
+        }
+      ]
+    }
+  }
+  
